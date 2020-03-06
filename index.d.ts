@@ -13,6 +13,7 @@ declare module 'react-mathquill' {
     latex?: string
     config?: MathFieldConfig
     mathquillDidMount?: (mathField: MathField) => void
+    onBlur?: () => void
   }
 
   export class EditableMathField extends React.Component<

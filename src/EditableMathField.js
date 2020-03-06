@@ -48,6 +48,11 @@ class EditableMathField extends React.Component {
     if (this.props.mathquillDidMount) {
       this.props.mathquillDidMount(this.mathField)
     }
+
+    // added to handle send equation after editing	  
+    if(this.props.onBlur){
+      this.props.onBlur(); 	    
+    }
   }
 
   /**
@@ -67,6 +72,7 @@ class EditableMathField extends React.Component {
       onChange,
       config,
       mathquillDidMount,
+      onBlur,	    
       ...otherProps
     } = this.props
 
@@ -86,6 +92,7 @@ EditableMathField.propTypes = {
   onChange: PropTypes.func,
   config: PropTypes.object,
   mathquillDidMount: PropTypes.func,
+  onBlur: PropTypes.func	
 }
 
 export default EditableMathField
