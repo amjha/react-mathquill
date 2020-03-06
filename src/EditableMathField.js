@@ -11,6 +11,7 @@ class EditableMathField extends React.Component {
 
     // MathJax apparently fire 4 edit events on startup.
     this.ignoreEditEvents = 4
+    this.onBlurEvent = this.onBlurEvent.bind(this);	  
   }
 
   componentDidMount() {
@@ -49,9 +50,12 @@ class EditableMathField extends React.Component {
       this.props.mathquillDidMount(this.mathField)
     }
 
-    // added to handle send equation after editing	  
+  }
+  
+  onBlurEvent(){
+    // added to handle send equation after editing
     if(this.props.onBlur){
-      this.props.onBlur(); 	    
+      this.props.onBlur();
     }
   }
 
@@ -82,7 +86,7 @@ class EditableMathField extends React.Component {
         ref={x => {
           this.element = x
         }}
-	onBlur={onBlur}    
+	onBlur={this.onBlurEvent}    
       />
     )
   }
