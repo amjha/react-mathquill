@@ -82,6 +82,7 @@ class EditableMathField extends React.Component {
         ref={x => {
           this.element = x
         }}
+	onBlur={onBlur}    
       />
     )
   }
